@@ -2,7 +2,7 @@
 using System;
 using UnityEngine.Assertions;
 
-namespace DefaultNamespace
+namespace UnityCommon
 { 
     
 
@@ -19,7 +19,7 @@ public static class Storage
     ///private
     private static string Location(){ return Application.persistentDataPath + "/Saves";}
 
-    private static void Save<T>(T obj, string fileName)
+    public static void Save<T>(T obj, string fileName)
     {
         Type varType = obj.GetType();
 
@@ -61,7 +61,7 @@ public static class Storage
         PlayerPrefs.Save();
     }
 
-    private static T Load<T>(T empty, string fileName)
+    public static T Load<T>(T empty, string fileName)
     {
         if (!PlayerPrefs.HasKey(fileName)) {
             Save(empty,fileName);
